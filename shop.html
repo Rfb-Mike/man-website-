@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M.A.N | Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    const exchangeRates = {
+      GHS: 1, USD: 0.086, EUR: 0.08, GBP: 0.068,
+      NGN: 120, ZAR: 1.6, CAD: 0.12, AUD: 0.13,
+      JPY: 13, CNY: 0.62, INR: 7, BRL: 0.45
+    };
+
+    function updatePrices() {
+      const currency = document.getElementById('currency-select').value;
+      document.querySelectorAll('[data-price-ghs]').forEach(el => {
+        const ghsPrice = parseFloat(el.getAttribute('data-price-ghs'));
+        const converted = (ghsPrice * exchangeRates[currency]).toFixed(2);
+        el.textContent = `${currency} ${converted}`;
+      });
+    }
+  </script>
+</head>
+<body class="bg-white text-black">
+
+  <header class="flex items-center justify-between p-4 shadow-md">
+    <h1 class="text-xl font-bold">M.A.N Shop</h1>
+    <select id="currency-select" onchange="updatePrices()" class="p-2 border rounded">
+      <option value="GHS">GHS - Ghana Cedi</option>
+      <option value="USD">USD - US Dollar</option>
+      <option value="EUR">EUR - Euro</option>
+      <option value="GBP">GBP - British Pound</option>
+      <option value="NGN">NGN - Nigerian Naira</option>
+      <option value="ZAR">ZAR - South African Rand</option>
+      <option value="CAD">CAD - Canadian Dollar</option>
+      <option value="AUD">AUD - Australian Dollar</option>
+      <option value="JPY">JPY - Japanese Yen</option>
+      <option value="CNY">CNY - Chinese Yuan</option>
+      <option value="INR">INR - Indian Rupee</option>
+      <option value="BRL">BRL - Brazilian Real</option>
+    </select>
+  </header>
+
+  <main class="px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="border p-4 rounded shadow">
+        <img src="images/IMG_6911.PNG" alt="White T-Shirt 1" class="w-full h-60 object-cover rounded mb-2">
+        <h3 class="text-lg font-bold">White T-Shirt</h3>
+        <p data-price-ghs="100">GHS 100</p>
+      </div>
+      <div class="border p-4 rounded shadow">
+        <img src="images/IMG_6912.PNG" alt="White T-Shirt 2" class="w-full h-60 object-cover rounded mb-2">
+        <h3 class="text-lg font-bold">White T-Shirt</h3>
+        <p data-price-ghs="150">GHS 150</p>
+      </div>
+      <div class="border p-4 rounded shadow">
+        <img src="images/IMG_6913.PNG" alt="White T-Shirt 3" class="w-full h-60 object-cover rounded mb-2">
+        <h3 class="text-lg font-bold">White T-Shirt</h3>
+        <p data-price-ghs="130">GHS 130</p>
+      </div>
+    </div>
+  </main>
+
+  <script>window.onload = updatePrices;</script>
+</body>
+</html>
