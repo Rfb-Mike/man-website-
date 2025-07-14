@@ -12,7 +12,7 @@
       JPY: 14.16, CNY: 0.69, INR: 8.27, BRL: 0.54
     };
 
-    function updatePrices() {
+     function updatePrices() {
       const currency = document.getElementById('currency-select').value;
       document.querySelectorAll('[data-price-ghs]').forEach(el => {
         const ghsPrice = parseFloat(el.getAttribute('data-price-ghs'));
@@ -24,8 +24,16 @@
 </head>
 <body class="bg-white text-black">
 
+  <!-- Header -->
   <header class="flex items-center justify-between p-4 shadow-md">
-    <h1 class="text-xl font-bold">M.A.N Shop</h1>
+    <a href="index.html"><img src="images/IMG_6891.PNG" alt="M.A.N Logo" class="h-10"></a>
+    <nav class="hidden md:flex space-x-4">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="font-bold underline">Shop</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
     <select id="currency-select" onchange="updatePrices()" class="p-2 border rounded">
       <option value="GHS">GHS - Ghana Cedi</option>
       <option value="USD">USD - US Dollar</option>
@@ -42,26 +50,57 @@
     </select>
   </header>
 
-  <main class="px-4 py-8">
+  <!-- Shop Section -->
+  <main class="p-6">
+    <h1 class="text-3xl font-bold text-center mb-8">Shop All Products</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Product 1 -->
       <div class="border p-4 rounded shadow">
         <img src="images/IMG_6911.PNG" alt="White T-Shirt 1" class="w-full h-60 object-cover rounded mb-2">
         <h3 class="text-lg font-bold">White T-Shirt</h3>
         <p data-price-ghs="190">GHS 190</p>
+        <a 
+          href="https://wa.me/233599342432?text=Hi%2C%20I%20want%20to%20order%20the%20White%20T-Shirt%20for%20GHS%20100"
+          target="_blank"
+          class="mt-2 inline-block bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
+        >Order Now</a>
       </div>
+
+      <!-- Product 2 -->
       <div class="border p-4 rounded shadow">
         <img src="images/IMG_9464.PNG" alt="White T-Shirt 2" class="w-full h-60 object-cover rounded mb-2">
         <h3 class="text-lg font-bold">White T-Shirt</h3>
         <p data-price-ghs="200">GHS 200</p>
+        <a 
+          href="https://wa.me/233599342432?text=Hi%2C%20I%20want%20to%20order%20the%20White%20T-Shirt%20for%20GHS%20150"
+          target="_blank"
+          class="mt-2 inline-block bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
+        >Order Now</a>
       </div>
+
+      <!-- Product 3 -->
       <div class="border p-4 rounded shadow">
         <img src="images/IMG_9462.PNG" alt="White T-Shirt 3" class="w-full h-60 object-cover rounded mb-2">
         <h3 class="text-lg font-bold">White T-Shirt</h3>
         <p data-price-ghs="220">GHS 220</p>
+        <a 
+          href="https://wa.me/233599342432?text=Hi%2C%20I%20want%20to%20order%20the%20White%20T-Shirt%20for%20GHS%20130"
+          target="_blank"
+          class="mt-2 inline-block bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
+        >Order Now</a>
       </div>
+
     </div>
   </main>
 
-  <script>window.onload = updatePrices;</script>
+  <!-- Footer -->
+  <footer class="bg-black text-white py-6 text-center mt-10">
+    <p>© 2025 M.A.N Clothing. All rights reserved.</p>
+  </footer>
+
+  <script>
+    window.onload = updatePrices;
+  </script>
 </body>
 </html>
